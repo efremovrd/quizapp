@@ -1,0 +1,88 @@
+version: "3.9"
+
+services:
+
+  postgresql:
+    image: postgres:15.0
+    environment:
+      POSTGRES_DB: "quizapp"
+      POSTGRES_USER: "minotauro"
+      POSTGRES_PASSWORD: "Controcarro3"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./migrations:/docker-entrypoint-initdb.d
+      - /home/efremovrd/data/quizapp:/var/lib/postgresql/data
+
+  postgresqlmirror:
+    image: postgres:15.0
+    environment:
+      POSTGRES_DB: "quizapp"
+      POSTGRES_USER: "minotauro"
+      POSTGRES_PASSWORD: "Controcarro3"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./migrations:/docker-entrypoint-initdb.d
+      - /home/efremovrd/data/quizappmirror:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresql
+
+  api2:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresql
+      - api
+    volumes:
+      - ./configreadonly/config.yml:/home/minotauro/quizapp/config/config.yml
+
+  api3:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresql
+      - api2
+    volumes:
+      - ./configreadonly/config.yml:/home/minotauro/quizapp/config/config.yml
+
+  apimirror:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresqlmirror
+    volumes:
+      - ./configmirror/config.yml:/home/minotauro/quizapp/config/config.yml
+
+  pgadmin:
+    image: 'dpage/pgadmin4'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=minotauro@mail.ru
+      - PGADMIN_DEFAULT_PASSWORD=Controcarro3
+      - traefik.frontend.pgadmin4.rule=Host(`host.example.com`) && PathPrefix(`/admin`)
+
+  nginx:
+    image: 'byjg/nginx-extras'
+    ports:
+      - "9090:9090"
+    links:
+      - "api:api"
+      - "api2:api2"
+      - "api3:api3"
+      - "apimirror:apimirror"
+      - "pgadmin:pgadmin"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/static:/usr/share/nginx/static
+    depends_on:
+      - api
+      - api2
+      - api3
+      - apimirror
+

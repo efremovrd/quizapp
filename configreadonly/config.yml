@@ -1,0 +1,14 @@
+server:
+  AppVersion: 1.0.0
+  Port: :5000
+  JwtSecretKey: Controcarro3
+  CtxUserkey: User
+  ReadTimeout: 10
+  WriteTimeout: 10
+
+postgres:
+  PostgresqlHost: postgresql
+  PostgresqlPort: 5432
+  PostgresqlUser: minotauro_readonly
+  PostgresqlPassword: Controcarro3_readonly
+  PostgresqlDbname: quizapp

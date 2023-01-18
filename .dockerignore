@@ -1,0 +1,8 @@
+config?*
+.dockerignore
+docker-compose.yml
+Dockerfile
+docs
+migrations
+nginx
+readme.md
