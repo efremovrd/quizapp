@@ -60,7 +60,7 @@ func (h *authHandlers) SignUp() gin.HandlerFunc {
 			return
 		}
 
-		signedupuser, err := h.authUC.SignUp(c.Request.Context(), requsetToBL(request))
+		signedupuser, err := h.authUC.SignUp(c.Request.Context(), requestToBL(request))
 		if err != nil {
 			c.AbortWithStatus(errs.MatchHttpErr(err))
 			return
@@ -92,7 +92,7 @@ func (h *authHandlers) SignIn() gin.HandlerFunc {
 			return
 		}
 
-		token, err := h.authUC.SignIn(c.Request.Context(), requsetToBL(request))
+		token, err := h.authUC.SignIn(c.Request.Context(), requestToBL(request))
 		if err != nil {
 			c.AbortWithStatus(errs.MatchHttpErr(err))
 			return
@@ -125,7 +125,7 @@ func (h *authHandlers) GetById() gin.HandlerFunc {
 	}
 }
 
-func requsetToBL(request *AuthRequest) *models.User {
+func requestToBL(request *AuthRequest) *models.User {
 	return &models.User{
 		Login:    request.Login,
 		Password: request.Password,
