@@ -12,3 +12,9 @@ postgres:
   PostgresqlUser: minotauro
   PostgresqlPassword: Controcarro3
   PostgresqlDbname: quizapp
+
+cors:
+  AllowOrigins: [http://localhost:9090,http://localhost:3000]
+  AllowMethods: [GET,DELETE,POST,PATCH,PUT]
+  AllowHeaders: [Content-Type,Content-Length,Authorization]
+  

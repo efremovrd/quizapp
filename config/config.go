@@ -12,6 +12,7 @@ import (
 type Config struct {
 	Server   ServerConfig
 	Postgres PostgresConfig
+	Cors     CorsConfig
 }
 
 type ServerConfig struct {
@@ -29,6 +30,12 @@ type PostgresConfig struct {
 	PostgresqlUser     string
 	PostgresqlPassword string
 	PostgresqlDbname   string
+}
+
+type CorsConfig struct {
+	AllowOrigins []string
+	AllowMethods []string
+	AllowHeaders []string
 }
 
 func LoadConfig(filename string) (*viper.Viper, error) {

@@ -32,9 +32,9 @@ func New(cfg *config.Config, db *postgres.Postgres) *Server {
 		gin.Recovery(),
 		gin.Logger(),
 		cors.New(cors.Config{
-			AllowOrigins: []string{"http://localhost:3000"},
-			AllowMethods: []string{"GET", "DELETE", "POST", "PATCH", "PUT"},
-			AllowHeaders: []string{"Content-Type", "Content-Length"},
+			AllowOrigins: cfg.Cors.AllowOrigins,
+			AllowMethods: cfg.Cors.AllowMethods,
+			AllowHeaders: cfg.Cors.AllowHeaders,
 		}),
 	)
 	return &Server{router: router, cfg: cfg, db: db}
