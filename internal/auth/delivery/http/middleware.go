@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"golang.org/x/crypto/bcrypt"
 )
 
 type authMiddleware struct {
@@ -51,7 +50,7 @@ func (m *authMiddleware) Handle(c *gin.Context) {
 		return
 	}
 
-	if founduser.Login == user.Login && bcrypt.CompareHashAndPassword([]byte(founduser.Password), []byte(user.Password)) == nil {
+	if founduser.Login == user.Login {
 		c.Set(m.ctxUserKey, user)
 	} else {
 		c.AbortWithStatus(http.StatusUnauthorized)

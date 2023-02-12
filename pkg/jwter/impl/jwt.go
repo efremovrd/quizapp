@@ -1,14 +1,13 @@
 package jwtgo
 
 import (
-	"quiz-app/models"
 	"quiz-app/pkg/jwter"
 
 	"github.com/dgrijalva/jwt-go"
 )
 
 type claims struct {
-	User *models.User
+	Id, Login string
 	jwt.StandardClaims
 }
 
@@ -20,9 +19,10 @@ func NewJWTGO(secret_key string) jwter.JWTer {
 	return &jwtgo{secret_key}
 }
 
-func (j *jwtgo) GenerateJWTToken(user *models.User) (*string, error) {
+func (j *jwtgo) GenerateJWTToken(id, login string) (*string, error) {
 	claims := &claims{
-		User:           user,
+		Id:             id,
+		Login:          login,
 		StandardClaims: jwt.StandardClaims{},
 	}
 
@@ -36,14 +36,14 @@ func (j *jwtgo) GenerateJWTToken(user *models.User) (*string, error) {
 	return &token_string, nil
 }
 
-func (j *jwtgo) ParseToken(access_token string) (*models.User, error) {
+func (j *jwtgo) ParseToken(access_token string) (*string, *string, error) {
 	token, err := jwt.ParseWithClaims(access_token, &claims{}, func(token *jwt.Token) (interface{}, error) {
 		return []byte(j.key), nil
 	})
 
 	if claims, ok := token.Claims.(*claims); ok && token.Valid {
-		return claims.User, nil
+		return &claims.Id, &claims.Login, nil
 	}
 
-	return nil, err
+	return nil, nil, err
 }

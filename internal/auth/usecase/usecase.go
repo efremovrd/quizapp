@@ -63,16 +63,19 @@ func (a *authUseCase) SignIn(ctx context.Context, user *models.User) (*string, e
 
 	founduser.Password = user.Password
 
-	return a.jwter.GenerateJWTToken(founduser)
+	return a.jwter.GenerateJWTToken(founduser.Id, founduser.Login)
 }
 
 func (a *authUseCase) ParseToken(ctx context.Context, token string) (*models.User, error) {
-	user, err := a.jwter.ParseToken(token)
+	id, login, err := a.jwter.ParseToken(token)
 	if err != nil {
 		return nil, errs.ErrInvalidAccessToken
 	}
 
-	return user, nil
+	return &models.User{
+		Id:    *id,
+		Login: *login,
+	}, nil
 }
 
 func (a *authUseCase) GetById(ctx context.Context, id string) (*models.User, error) {
