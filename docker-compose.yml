@@ -11,7 +11,7 @@ services:
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
       - ./migrations:/docker-entrypoint-initdb.d
-      - /home/efremovrd/data/quizapp:/var/lib/postgresql/data
+      - ./data/quizapp:/var/lib/postgresql/data
 
   postgresqlmirror:
     image: postgres:15.0
@@ -22,7 +22,7 @@ services:
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
       - ./migrations:/docker-entrypoint-initdb.d
-      - /home/efremovrd/data/quizappmirror:/var/lib/postgresql/data
+      - ./data/quizappmirror:/var/lib/postgresql/data
 
   api:
     build:
