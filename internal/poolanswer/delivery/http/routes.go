@@ -1,7 +1,7 @@
 package http
 
 import (
-	"quiz-app/internal/poolanswer"
+	"quizapp/internal/poolanswer"
 
 	"github.com/gin-gonic/gin"
 )

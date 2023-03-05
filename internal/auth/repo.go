@@ -2,7 +2,7 @@ package auth
 
 import (
 	"context"
-	"quiz-app/models"
+	"quizapp/models"
 )
 
 type Repo interface {

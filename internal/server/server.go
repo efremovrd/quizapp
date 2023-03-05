@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"quiz-app/config"
-	"quiz-app/pkg/postgres"
+	"quizapp/config"
+	"quizapp/pkg/postgres"
 	"syscall"
 	"time"
 

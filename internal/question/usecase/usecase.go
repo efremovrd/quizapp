@@ -2,10 +2,10 @@ package usecase
 
 import (
 	"context"
-	"quiz-app/internal/form"
-	"quiz-app/internal/question"
-	"quiz-app/models"
-	"quiz-app/pkg/types"
+	"quizapp/internal/form"
+	"quizapp/internal/question"
+	"quizapp/models"
+	"quizapp/pkg/types"
 )
 
 type questionUseCase struct {

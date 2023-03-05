@@ -2,7 +2,7 @@ package http
 
 import (
 	"net/http"
-	"quiz-app/internal/auth"
+	"quizapp/internal/auth"
 	"strings"
 
 	"github.com/gin-gonic/gin"

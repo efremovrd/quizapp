@@ -2,11 +2,11 @@ package usecase
 
 import (
 	"context"
-	"quiz-app/internal/answer"
-	"quiz-app/internal/form"
-	"quiz-app/internal/poolanswer"
-	"quiz-app/models"
-	"quiz-app/pkg/types"
+	"quizapp/internal/answer"
+	"quizapp/internal/form"
+	"quizapp/internal/poolanswer"
+	"quizapp/models"
+	"quizapp/pkg/types"
 )
 
 type poolAnswerUseCase struct {

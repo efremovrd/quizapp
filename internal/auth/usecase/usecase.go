@@ -2,10 +2,10 @@ package usecase
 
 import (
 	"context"
-	"quiz-app/internal/auth"
-	"quiz-app/models"
-	"quiz-app/pkg/errs"
-	"quiz-app/pkg/jwter"
+	"quizapp/internal/auth"
+	"quizapp/models"
+	"quizapp/pkg/errs"
+	"quizapp/pkg/jwter"
 
 	"golang.org/x/crypto/bcrypt"
 )

@@ -3,13 +3,13 @@ package usecase_test
 import (
 	"context"
 	"errors"
-	"quiz-app/internal/auth/usecase"
-	"quiz-app/models"
+	"quizapp/internal/auth/usecase"
+	"quizapp/models"
 	"testing"
 
-	mockauth "quiz-app/internal/auth/mock"
-	"quiz-app/pkg/errs"
-	mockjwt "quiz-app/pkg/jwter/mock"
+	mockauth "quizapp/internal/auth/mock"
+	"quizapp/pkg/errs"
+	mockjwt "quizapp/pkg/jwter/mock"
 
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"

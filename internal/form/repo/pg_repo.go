@@ -3,11 +3,11 @@ package repo
 import (
 	"context"
 	"errors"
-	"quiz-app/internal/form"
-	"quiz-app/models"
-	"quiz-app/pkg/errs"
-	"quiz-app/pkg/postgres"
-	"quiz-app/pkg/types"
+	"quizapp/internal/form"
+	"quizapp/models"
+	"quizapp/pkg/errs"
+	"quizapp/pkg/postgres"
+	"quizapp/pkg/types"
 	"strconv"
 
 	"github.com/Masterminds/squirrel"

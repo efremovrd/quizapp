@@ -2,8 +2,8 @@ package poolanswer
 
 import (
 	"context"
-	"quiz-app/models"
-	"quiz-app/pkg/types"
+	"quizapp/models"
+	"quizapp/pkg/types"
 )
 
 type UseCase interface {

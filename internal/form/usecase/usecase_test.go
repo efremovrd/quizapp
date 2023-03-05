@@ -3,11 +3,11 @@ package usecase_test
 import (
 	"context"
 	"errors"
-	"quiz-app/internal/form/mock"
-	"quiz-app/internal/form/usecase"
-	"quiz-app/models"
-	"quiz-app/pkg/errs"
-	"quiz-app/pkg/types"
+	"quizapp/internal/form/mock"
+	"quizapp/internal/form/usecase"
+	"quizapp/models"
+	"quizapp/pkg/errs"
+	"quizapp/pkg/types"
 	"testing"
 
 	"github.com/golang/mock/gomock"

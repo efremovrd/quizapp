@@ -2,9 +2,9 @@ package main
 
 import (
 	"log"
-	"quiz-app/config"
-	"quiz-app/internal/server"
-	"quiz-app/pkg/postgres"
+	"quizapp/config"
+	"quizapp/internal/server"
+	"quizapp/pkg/postgres"
 )
 
 // @title Quiz REST API

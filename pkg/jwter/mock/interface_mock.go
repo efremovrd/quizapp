@@ -5,7 +5,7 @@
 package mock
 
 import (
-	models "quiz-app/models"
+	models "quizapp/models"
 	reflect "reflect"
 
 	gomock "github.com/golang/mock/gomock"

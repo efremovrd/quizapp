@@ -2,9 +2,9 @@ package http
 
 import (
 	"net/http"
-	"quiz-app/internal/auth"
-	"quiz-app/models"
-	"quiz-app/pkg/errs"
+	"quizapp/internal/auth"
+	"quizapp/models"
+	"quizapp/pkg/errs"
 
 	"github.com/gin-gonic/gin"
 )

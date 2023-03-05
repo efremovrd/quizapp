@@ -3,11 +3,11 @@ package repo_test
 import (
 	"context"
 	"errors"
-	"quiz-app/internal/answer/repo"
-	"quiz-app/models"
-	"quiz-app/pkg/errs"
-	"quiz-app/pkg/postgres"
-	"quiz-app/pkg/types"
+	"quizapp/internal/answer/repo"
+	"quizapp/models"
+	"quizapp/pkg/errs"
+	"quizapp/pkg/postgres"
+	"quizapp/pkg/types"
 	"strconv"
 	"testing"
 

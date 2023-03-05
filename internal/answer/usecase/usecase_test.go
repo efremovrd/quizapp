@@ -3,9 +3,9 @@ package usecase_test
 import (
 	"context"
 	"errors"
-	"quiz-app/internal/answer/usecase"
-	"quiz-app/models"
-	"quiz-app/pkg/types"
+	"quizapp/internal/answer/usecase"
+	"quizapp/models"
+	"quizapp/pkg/types"
 	"testing"
 
 	mocka "quiz-app/internal/answer/mock"

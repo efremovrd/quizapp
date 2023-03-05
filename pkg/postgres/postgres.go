@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"quiz-app/config"
+	"quizapp/config"
 
 	"github.com/Masterminds/squirrel"
 	"github.com/driftprogramming/pgxpoolmock"

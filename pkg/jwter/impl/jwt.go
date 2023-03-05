@@ -1,7 +1,7 @@
 package jwtgo
 
 import (
-	"quiz-app/pkg/jwter"
+	"quizapp/pkg/jwter"
 
 	"github.com/dgrijalva/jwt-go"
 )

@@ -3,15 +3,15 @@ package usecase_test
 import (
 	"context"
 	"errors"
-	"quiz-app/internal/poolanswer/usecase"
-	"quiz-app/models"
-	"quiz-app/pkg/types"
+	"quizapp/internal/poolanswer/usecase"
+	"quizapp/models"
+	"quizapp/pkg/types"
 	"strconv"
 	"testing"
 
-	mocka "quiz-app/internal/answer/mock"
-	mockf "quiz-app/internal/form/mock"
-	mockpa "quiz-app/internal/poolanswer/mock"
+	mocka "quizapp/internal/answer/mock"
+	mockf "quizapp/internal/form/mock"
+	mockpa "quizapp/internal/poolanswer/mock"
 
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
